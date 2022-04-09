@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Message Sender</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+      }
+      .frame {
+        position: relative;
+        width: 414px;
+        height: 786px;
+        margin: 0 auto;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        background: #d4d1ca;
+        border-radius: 50px;
+      }
+
+      .heading {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 0px;
+        position: absolute;
+        width: 362px;
+        height: 48px;
+        left: 25px;
+        top: 49px;
+      }
+
+      .heading h2 {
+        position: static;
+        width: 265px;
+        height: 48px;
+        left: 5px;
+        top: 0px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 32px;
+        line-height: 48px;
+        color: #5d73a7;
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+        margin: 0px 37px;
+      }
+
+      .buttonSend {
+        padding: 10px;
+        position: absolute;
+        width: 340px;
+        height: 55px;
+        left: 36px;
+        top: 565px;
+        font-size: 23px;
+        font-weight: bold;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: #e5e5e5;
+        border: none;
+        background: #5b70a4;
+        border-radius: 25px;
+      }
+
+      svg {
+        position: static;
+        left: 84.81%;
+        right: 1.38%;
+        top: 8.33%;
+        bottom: 8.33%;
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 1;
+        flex-grow: 0;
+        margin: 0px 37px;
+      }
+
+      .name {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        position: absolute;
+        width: 389px;
+        height: 90px;
+        top: 157px;
+      }
+      .name h3 {
+        position: static;
+        width: 300px;
+        height: 70px;
+        top: 10px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 23px;
+        line-height: 34px;
+        text-align: center;
+
+        color: #5b70a4;
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+        margin: 0px 10px;
+      }
+
+      .subname {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        position: absolute;
+        width: 300px;
+        height: 40px;
+        left: 63px;
+        top: 233px;
+      }
+
+      .subname h4 {
+        position: static;
+        width: 280px;
+        height: 24px;
+        left: 10px;
+        top: 8px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        /* identical to box height */
+
+        color: #5b70a4;
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+        margin: 0px 10px;
+      }
+
+      .text-area-cont {
+        position: absolute;
+        width: 350px;
+        height: 287px;
+        left: 31px;
+        top: 343px;
+        background: #dcd9d2;
+        border-radius: 25px;
+      }
+      #TextBox {
+        position: absolute;
+        width: 329px;
+        height: 199px;
+        left: 31px;
+        top: 343px;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        outline: none;
+        resize: none;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        color: #5b70a4;
+        border-color: #d4d1ca;
+        background: #dcd9d2;
+        border-radius: 25px 25px 0px 0px;
+      }
+      textarea::placeholder {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #5b70a4;
+      }
+      #guage {
+        position: relative;
+        left: 40px;
+        top: 535px;
+        z-index: 1;
+        font-size: 16px;
+        color: #5b70a4;
+      }
+      .footer {
+        position: absolute;
+        width: 143px;
+        height: 48px;
+        left: 135px;
+        top: 708px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: center;
+
+        color: #5b70a4;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="frame">
+      <div class="heading">
+        <h2>Message Sender</h2>
+        <svg
+          width="50"
+          height="40"
+          viewBox="0 0 50 40"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 11.7087L4.54545 16.8526C15.8409 4.07009 34.1591 4.07009 45.4545 16.8526L50 11.7087C36.2045 -3.90291 13.8182 -3.90291 0 11.7087ZM18.1818 32.2842L25 40L31.8182 32.2842C28.0682 28.0148 21.9545 28.0148 18.1818 32.2842ZM9.09091 21.9965L13.6364 27.1403C19.9091 20.0418 30.0909 20.0418 36.3636 27.1403L40.9091 21.9965C32.1364 12.0688 17.8864 12.0688 9.09091 21.9965Z"
+            fill="#5A70A9"
+          />
+        </svg>
+      </div>
+      <div class="name"><h3>Divine Church of EL-Shaddai Shalom</h3></div>
+      <div class="subname"><h4>(World Peace Evangelistic Ministry)</h4></div>
+      <div class="text-area-cont"></div>
+      <p id="guage"></p>
+      <textarea
+        id="TextBox"
+        name="TextBox"
+        placeholder="Enter your message"
+        maxlength="81"
+      ></textarea>
+
+      <button type="button" class="buttonSend" onclick="sendData()">
+        Send
+      </button>
+      <div class="footer">
+        <p>
+          Powered by DTEQ <br />
+          08161648794
+        </p>
+      </div>
+    </div>
+
+    <script>
+      var myText = document.getElementById('TextBox');
+      var guage = document.getElementById('guage');
+      myText.addEventListener('input', (event) => {
+        if (myText.value.length >= 81) {
+          myText.setCustomValidity('Message too long');
+          myText.reportValidity();
+          myText.focus();
+          guage.style.color = 'rgba(209, 43, 43, 0.692)';
+          return false;
+        } else {
+          myText.setCustomValidity('');
+          guage.style.color = '#5b70a4';
+        }
+        guage.textContent = `${myText.value.length}/80`;
+      });
+      function sendData() {
+        var Text = myText.value;
+        var xhttp = new XMLHttpRequest();
+        xhttp.open('GET', 'setText?TextContents=' + Text, true);
+        xhttp.send();
+      }
+    </script>
+  </body>
+</html>
